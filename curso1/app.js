@@ -1,14 +1,15 @@
 // Declaraciion de variables
+let rango = parseInt(prompt("Ingresa el rango de numeros con el que quieres jugar"));
 // genera un numero aleatorio entre 1 y 10 con Math.random() * 10
-let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+let numeroSecreto = Math.floor(Math.random() * rango) + 1;
 let numeroUsuario = 0;
 let intentos= 1;
-let maximoIntentos = 5;
+let maximoIntentos = parseInt( 5 *( rango / 10));
 
 // Imprimir en consola
 
 while (numeroUsuario != numeroSecreto ) {
-    numeroUsuario = parseInt(prompt("Adivina el numero secreto"));
+    numeroUsuario = parseInt(prompt("Adivina el numero secreto entre 1 y " + rango));
     console.log(numeroUsuario);
 
     // Condicional para saber si el numero es igual al numero secreto
