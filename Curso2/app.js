@@ -1,10 +1,22 @@
-let titulo = document.querySelector('h1');
-titulo.textContent = 'Juego del número secreto';
+let numeroSecreto = generarNumeroSecreto(10);
 
-let parrafo = document.querySelector('p');
-parrafo.textContent = 'Adivina el número secreto entre 1 y 10';
-
-function intentar(){
-    let numero =document.querySelector('input').value;
-    alert('Tu número es: ' + numero);
+function asignarTexto(elemento, texto){
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.textContent = texto;
 }
+function intentar(){
+    let valorUsuario =parseInt(document.getElementById('valorUsuario').value);
+    if (valorUsuario != numeroSecreto){
+        alert('El valor es incorrexto, intenta de nuevo');
+        return;
+    }
+    alert('Felicidades, adivinaste el número secreto');
+}
+
+function generarNumeroSecreto(numero){
+    return Math.floor(Math.random() * numero) + 1;
+}
+
+asignarTexto('h1', 'Juego del número secreto');
+asignarTexto('p', 'Introduce un número del 1 al 10');
+
