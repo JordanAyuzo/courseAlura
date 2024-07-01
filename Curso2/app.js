@@ -1,6 +1,8 @@
+let historial = [];
 let numeroSecreto = generarNumeroSecreto(10);
 let intentos = 1;
 let limiteIntentos = 3;
+
 
 function asignarTexto(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -28,12 +30,28 @@ function intentar(){
     }
 }
 function generarNumeroSecreto(numero){
-    return Math.floor(Math.random() * numero) + 1;
+    let numeroGenerado = Math.floor(Math.random() * numero) + 1;
+    //si ya sorteamos todos los numeros
+    if (historial.length == numero){
+        asignarTexto('p', 'Se han agotado los intentos, se reiniciará el juego');
+        //esperar 5 seg
+        setTimeout(() => {
+            historial = [];
+            reiniciar();
+        }
+        , 2000);
+    }
+    if (historial.includes(numeroGenerado)){
+        return generarNumeroSecreto(numero);
+    }
+    historial.push(numeroGenerado);
+    return numeroGenerado;
 }
 function limpiarInput(){
     document.getElementById('valorUsuario').value = '';
 }
 function reiniciar(){
+    console.log(historial);
     numeroSecreto = generarNumeroSecreto(10);
     intentos = 0;
     asignarTexto('p', 'Introduce un número del 1 al 10');
