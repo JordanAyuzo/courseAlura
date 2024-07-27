@@ -20,6 +20,9 @@ Una guía básica inicial para quien desea entrar en el universo de programació
 - `curso2/`
   - `README.md`: Descripción detallada del curso y sus contenidos.
   - `/recursos`: Documentos y recursos relacionados con el curso.
+- `curso3/`
+  - `README.md`: Descripción detallada del curso y sus contenidos.
+  - `/recursos`: Documentos y recursos relacionados con el curso.
 
 ## Notas Adicionales
 
